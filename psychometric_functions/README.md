@@ -32,13 +32,13 @@ Where:
 The subjective function models visibility report as a logistic function of ISI:
 
 $$
-f(ISI; \text{seen\_a}, \text{seen\_b}) =
-\frac{1}{1 + e^{\frac{\text{seen\_a} - ISI}{\text{seen\_b}}}}
+f(\text{ISI}; \, \text{seen\_a}, \, \text{seen\_b}) = \frac{1}{1 + e^{\frac{\text{seen\_a} - \text{ISI}}{\text{seen\_b}}}}
 $$
 
 Where:
 - `seen_a` is the ISI midpoint of the logistic function 
 - `seen_b` determines the spread or steepness of the curve  
+
 
 ## Usage
 
