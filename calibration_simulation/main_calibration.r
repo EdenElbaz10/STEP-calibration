@@ -53,7 +53,7 @@ psy_f_new <- function(x, alpha, beta, guess) {
 
 # Subjective psychometric function
 seen_psy_f_new <- function(x, seen_a, seen_b) {
-  return (1/(1 + exp(-(x - seen_a)/seen_b)))
+  return (1/(1 + exp((seen_a - x)/seen_b)))
 }
 
 
