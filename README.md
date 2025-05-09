@@ -9,10 +9,10 @@ In this work, we present a novel calibration procedure: The **S**ubliminal **T**
 ## Structure
 - `psychometric_functions/`: Bayesian hierarchical model fitting for subjective and objective psychometric functions.
     - Refer to the folders' `README.md` for additional information about the method.
-- `calibration_methods_UC_papers/`: Simulations of calibration methods reported in past unconscious processing studies.
+- `calibration_methods_UC_papers/`: Implementation of calibration methods reported in past unconscious processing studies.
 
-- `calibration_methods/`: Implementation of common calibration procedures (Staircaese, PEST, QUEST, QUEST+,and ASA) and the STEP method.
-    - Refer to the folders' `README.md` for additional information about reproducig the results
+- `calibration_methods/`: Implementation of STEP and current traditional calibration procedures (i.e. Staircaese, PEST, QUEST, QUEST+,and ASA).
+    - Refer to the folders' `README.md` for additional information about reproducig the results.
 - `calibration_simulation/`: Main calibration runner that wraps each method and evaluates estimation performance.
 
 ## Usage
