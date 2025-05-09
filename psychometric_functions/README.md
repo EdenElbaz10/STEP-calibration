@@ -1,6 +1,8 @@
 # Psychometric Function Fitting (Bayesian Models)
 
-This folder contains the data and R script used to fit Bayesian hierarchical psychometric functions to both objective (2AFC performence)and subjective (PAS ratings) results collected using the Method of Constant Stimuli (MOCS; Laming & Laming, 1992).
+This folder contains the data and R script used to fit Bayesian hierarchical psychometric functions to both objective (2AFC performance) and subjective (PAS ratings) results, collected using the Method of Constant Stimuli (MOCS). In this procedure, stimulus intensity was operationalized as the inter-stimulus interval (ISI) between the prime and the mask in a metacontrast masking paradigm.
+
+
 
 ## Contents
 - `all_grouped_data.csv`: objective accuracy data across different ISIs for 40 participants.
@@ -26,13 +28,14 @@ Where:
 - `b1` is the ISI upper subliminal threshold 
 - `b2` denotes the rate of performance improvement after the threshold is passed 
 - `λ = 0.02` is a fixed lapse rate
+  
 
 ## Subjective Psychometric Function
 
 The subjective function models visibility report as a logistic function of ISI:
 
 $$
-f(\text{ISI}; \, \text{seen\_a}, \, \text{seen\_b}) = \frac{1}{1 + e^{\frac{\text{seen\_a} - \text{ISI}}{\text{seen\_b}}}}
+f(\mathrm{ISI}; \ \mathrm{seen}_a \, \mathrm{seen}_b) = \frac{1}{1 + e^{\frac{\mathrm{seen}_a - \mathrm{ISI}}{\mathrm{seen}_b}}}
 $$
 
 Where:
@@ -45,3 +48,4 @@ Where:
 To run the analysis, open `Psychometric_Bayesian_models.R` in R and execute the script. Ensure that the required packages (`brms`, `rstan`, `bayesplot`) are installed.
 
 The output file `participant_parameters.csv` will contain four fitted parameters per participant
+
