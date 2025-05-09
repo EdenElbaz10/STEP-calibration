@@ -1,7 +1,6 @@
 #Biderman & Mudrik, 2018: 1-up 1-down objective staircase procedure
 #Final threshold: second-lowest ISI
 
-
 library(dplyr)
 library(binom)
 library(foreach)
@@ -18,14 +17,13 @@ run_single_calibration <- function(s_ind,
                                 trial_correct = c(),
                                 repetition=c(),
                                 step_size=c(),
-                                real_threshold=c(),
-                                reversals=c()
+                                real_threshold=c()
+                                
                                 )
   
   
   # Calibration settings
   repetition_number <- 1         # Number of repetitions
-  max_trials <- 72               # Number of trials 
   min_ISI <- 0                   # Minimum allowed ISI
   max_ISI <- 200                 # Maximum allowed ISI
   step <- 15                     #  step size
@@ -55,7 +53,6 @@ run_single_calibration <- function(s_ind,
     ISI <- initial_sim_conf$initial_ISI
     ISI_list <- c(ISI)  # vector to hold ISI values for each trial
     min_ISI_obs <- ISI
-    reversals <- 0
     
     last_adj_dir<-NA
     
@@ -68,12 +65,8 @@ run_single_calibration <- function(s_ind,
       
       # Compute adjustment direction
       adj_dir <- ifelse(correct, -1, 1)
-      reversals <- 0
+
       
-      # Check for reversal
-      if (!is.na(last_adj_dir) && adj_dir != last_adj_dir) {
-        reversals <-1
-      }
       
       # save results per trial
       cur_sim_res <- list(subj = s_ind, 
@@ -83,8 +76,8 @@ run_single_calibration <- function(s_ind,
                           trial_correct = correct,
                           repetition= calibration,
                           step_size=step*adj_dir,
-                          real_threshold=uc_threshold,
-                          reversals=reversals
+                          real_threshold=uc_threshold
+                    
       )
       
       full_res_df_sub <- rbind(full_res_df_sub, cur_sim_res)
@@ -128,5 +121,13 @@ run_single_calibration <- function(s_ind,
   
   
   return (list(cur_sim_sum = cur_sim_sum, full_res_df_sub = full_res_df_sub))
+
+
 }
+
+
+#Reference:
+# Biderman, N., & Mudrik, L. (2018). Evidence for implicit—but not unconscious—processing 
+# of object-scene relations. *Psychological Science*, 29(2), 266–277.
+# https://doi.org/10.1177/0956797617730596
 
